@@ -2,8 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -56,6 +58,22 @@ public class CatTest {
     }
 
     // TODO - Create tests for `void eat(Food food)`
+    @Test
+    public void eatTest() {
+        // Given
+        Cat cat = new Cat(null, null, null);
+        Food food = new Food();
+        cat.eat(food);
+
+        Integer expected = 1;
+
+        // When
+        Integer actual = cat.getNumberOfMealsEaten();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
     // TODO - Create tests for `Integer getId()`
     @Test
     public void getIdTest() {
@@ -78,8 +96,34 @@ public class CatTest {
     }
 
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
-    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+    @Test
+    public void animalInheritanceTest() {
+        // Given
+        Cat cat = new Cat(null, null, null);
 
+        boolean expected = true;
+
+        // When
+        boolean actual = cat instanceof Animal;
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+    @Test
+    public void mammalInheritanceTest() {
+        // Given
+        Cat cat = new Cat(null, null, null);
+
+        boolean expected = true;
+
+        // When
+        boolean actual = cat instanceof Mammal;
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void constructorTest() {
